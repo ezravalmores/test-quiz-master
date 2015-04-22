@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_filter :find_question, only: [:show, :edit, :update]
+  before_filter :find_question, only: [:show, :edit, :update, :answer]
 
   def index
     @questions = Question.all
@@ -28,6 +28,10 @@ class QuestionsController < ApplicationController
 
   def answer
     # TODO
+    hash = params[:answer]
+    @answer = hash[:answer.to_s]
+    
+    @result = @question.is_correct?(@answer) 
   end
 
   private

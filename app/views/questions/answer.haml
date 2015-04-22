@@ -1,0 +1,15 @@
+.container
+  .answer_container
+    - if @result
+      .correct_answer
+        %h1 YAHOO!
+      .content
+        Congratulations, you're answer is correct!
+    - else
+      .wrong_answer
+        %h1 OOOPS!
+      .content
+        You have submitted a wrong answer.
+    
+    .content.pull-right
+      = link_to "Choose another question", root_path, class: "btn btn-default"

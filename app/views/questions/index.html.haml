@@ -1,12 +1,15 @@
 .container
-  %h1 Choose a question!
+  %h2
+    Choose a Question
+    %span.pull-right
+      = link_to "Add a new question", new_question_path, class: "btn btn-default btn-sm" 
 
-  .well
-    %ul
-      - @questions.each do |question|
-        %li
-          = link_to question.question, question
-          %span.small
-            (#{link_to "edit", edit_question_path(question)})
+  .adjust_margin
+    - @questions.each do |question|
+      .row.question_container
+        .col-md-8
+          = link_to question.question.html_safe, question
+        .col-md-4
+          %span.small.pull-right
+            = link_to "edit", edit_question_path(question)
 
-  = link_to "Add a new question", new_question_path

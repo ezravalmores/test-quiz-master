@@ -29,7 +29,12 @@ gem 'spring', group: :development
 gem 'bootstrap-sass', '~> 3.3.4'
 
 gem 'haml-rails'
+gem 'numbers_and_words'
+gem 'bootsy'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'byebug'
+  gem "factory_girl_rails", "~> 4.0"
+  gem "database_cleaner"
 end

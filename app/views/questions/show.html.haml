@@ -1,11 +1,15 @@
 .container
-  %h1 Question time...
+  %h2
+    Answer the Question...
 
-  .well
-    %p= @question.question
-
-    = form_for :answer, url: answer_question_path(@question) do |f|
-      .form-group
-        = f.text_field :answer, class: 'form-control'
-
-      = f.submit "Submit answer", class: 'btn btn-default'
+  .adjust_margin
+    .correct_answer
+      %h1 #{@question.question.html_safe}
+    .content
+      = form_for :answer, url: answer_question_path(@question) do |f|
+        .form-group
+          = f.text_field :answer, class: 'form-control', placeholder: "answer"
+    
+        .content.pull-right
+          = link_to "Choose another question", root_path, class: "btn btn-default"
+          = f.submit "Submit answer", class: 'btn btn-default'
